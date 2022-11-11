@@ -1,21 +1,29 @@
-# This is a sample Python script.
-
 import pandas as pd
-import requests as requests
+import matplotlib.pyplot as plt
 
+z1 = ['leganes', 400]
+z2 = ['atleti', 520]
+z3 = [',madrid', 320]
+z4 = ['barsa', 120]
+z5 = ['rayo vallecano', 200]
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+listaequipos = [z1, z2, z3, z4, z5]
 
+equipos = pd.DataFrame(listaequipos, columns=['titulos', 'años'])
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    paginas=requests.get('www.elpais.es')
+print(equipos)
 
+plt.plot(equipos['titulos'], equipos['años'])
+plt.show()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+plt.scatter(equipos['titulos'], equipos['años'])
+plt.show()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+plt.barh(equipos['titulos'], equipos['años'])
+plt.show()
+
+plt.bar(equipos['titulos'], equipos['años'])
+plt.show()
+
+plt.pie(equipos['titulos'], equipos['años'])
+plt.show()
